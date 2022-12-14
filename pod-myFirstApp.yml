@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-first-app.vuduchailinh.store
+  labels:
+    app: my-first-app
+spec:
+  containers:
+  - name: k8s-my-first-app
+    image: vuduchailinh/my-first-app
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 3000
