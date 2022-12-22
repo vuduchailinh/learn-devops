@@ -5,7 +5,7 @@ Create files: `Dockerfile, package.json, index.js`
 ## 1. Build docker
 ```terminal
     $ cd MyFirstApp
-    $ docker build -t vuduchailinh/my-first-app .
+    $ docker build -t vuduchailinh/my-first-app:1 .
 ```
 ## 2. Run app
 ```terminal
@@ -18,7 +18,7 @@ Create files: `Dockerfile, package.json, index.js`
 ```
 ## 4. Push an image to docker hub
 ```terminal
-    $ docker push vuduchailinh/my-first-app
+    $ docker push vuduchailinh/my-first-app:1
 ```
 
 # Run MyFirstApp on Kubernetes
