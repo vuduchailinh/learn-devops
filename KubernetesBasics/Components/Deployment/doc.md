@@ -60,4 +60,10 @@ Create file `deployment-myFirstApp.yml`
 
   # Check change
   $ kubectl rollout status deployment/my-first-app-deployment
+
+  # Get history
+  $ kubectll rollout history deployment/my-first-app-deployment
+
+  # Rollback previous version [--to-revision=2]
+  $ kubectl rollout undo deployment/my-first-app-deployment
 ```
