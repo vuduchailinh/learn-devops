@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: my-first-app-deployment
+  labels:
+    name: my-first-app
+spec:
+  replicas: 3
+  containers:
+  - name: k8s-demo
+    image: vuduchailinh/my-first-app
+    ports:
+      - containerPort: 3000
+    livenessProbe:
+      httpGet:
+        path: /
+        port: nodejs-port
+      initialDelaySeconds: 15
+      timeoutSeconds: 30
+    readinessProbe:
+      httpGet:
+          path: /
+          port: nodejs-port
+      initialDelaySeconds: 15
+      timeoutSeconds: 30
