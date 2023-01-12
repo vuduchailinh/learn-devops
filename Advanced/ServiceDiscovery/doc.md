@@ -7,3 +7,11 @@
 - Multiple containers `within 1 pod` don't need this service, as they can `contact` each other `directly`
   - A container in the same pod can connect to the port of the other container directly using `localhost:port`
 - To make DNS work, a pod will need a `Service definition`
+
+## Demo
+Create file `secrets.yml, database-pod.yml, database-service.yml`
+
+```bash
+  # create secret
+  $ kubectl create -f secrets.yml
+```

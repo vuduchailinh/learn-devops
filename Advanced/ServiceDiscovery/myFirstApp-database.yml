@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myFirstApp-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: myFirstApp-deployment
+    spec:
+      containers:
+      - name: k8s-demo
+        image: vuduchailinh/my-first-app
+        command: ["node", "index-db.js"]
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+          name: nodejs-port
+        env:
+          - name: MYSQL_HOST
+            value: database-service
+          - name: MYSQL_USER
+            value: root
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: rootPassword
+                name: myFirstApp-secrets
+          - name: MYSQL_DATABASE
+            valueFrom:
+              secretKeyRef:
+                key: database
+                name: myFirstApp-secrets
