@@ -16,3 +16,4 @@ Create file `secrets.yml, database-pod.yml, database-service.yml`
   $ kubectl create -f secrets.yml
 ```
 1
+2
